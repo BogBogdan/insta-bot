@@ -9,6 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from driver import Driver
 from loginCredentials import getCredentials
+from instagramFunctions import AddImage, AddTextToImage, AuthFunction, ClickButtonNext, ClickButtonShare, NotNowStopFunction, OpenNewPostFunction, OriginalImageSize
 import time
 import json
 import random
