@@ -20,7 +20,7 @@ def get_first_line(file_path):
 
 def uplaod_image():
     
-    
+    line = get_first_line("./uploadData.txt")
     # Formirajte komandu koja će pokrenuti test.py sa argumentima
     command = ["python", "Start.py", "arg1", "arg2"]
 
