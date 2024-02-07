@@ -1,21 +1,12 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from driver import Driver
 from loginCredentials import getCredentials
 from instagramFunctions import AddImage, AddTextToImage, AuthFunction, ClickButtonNext, ClickButtonShare, NotNowStopFunction, OpenNewPostFunction, OriginalImageSize
 import time
-import json
 import random
+import sys
 
 
-def start():
+def addImageOnInstagram(imgUrl, imgText):
     driver = Driver.getDriver()
     username, password = getCredentials.usernameNpassword()
     
@@ -32,7 +23,7 @@ def start():
 
     time.sleep(random.randrange(4,5))
 
-    AddImage.izaberi_sliku(driver, "C:/Users/bogda/OneDrive/Desktop/Slike/2.jpg")
+    AddImage.izaberi_sliku(driver, imgUrl)
     
     time.sleep(random.randrange(4,5))
 
@@ -44,7 +35,7 @@ def start():
 
     time.sleep(random.randrange(4,5))
 
-    AddImage.izaberi_sliku(driver, "C:/Users/bogda/OneDrive/Desktop/Slike/2.jpg")
+    AddImage.izaberi_sliku(driver, imgUrl)
 
     time.sleep(random.randrange(4,5))
 
@@ -64,11 +55,27 @@ def start():
 
     time.sleep(random.randrange(4,5))
 
-    AddTextToImage.insert_text_into_element(driver, "Ovo je neki tekst \n #freedom")
+    AddTextToImage.insert_text_into_element(driver, imgText)
 
     time.sleep(random.randrange(60,70))
 
     # Zatvaranje pregledača
     driver.quit()
     
-start()
+
+def main():
+    # Provera broja argumenata
+    if len(sys.argv) != 3:
+        print("Molimo vas unesite tačno dva argumenta.")
+        print("Na primer: python test.py arg1 arg2")
+        return
+    
+    # Čitanje argumenata iz komandne linije
+    image_path = sys.argv[1]
+    caption = sys.argv[2]
+    
+    # Poziv funkcije addImageOnInstagram sa argumentima iz komandne linije
+    addImageOnInstagram(image_path, caption)
+
+if __name__ == "__main__":
+    main()
