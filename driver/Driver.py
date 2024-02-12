@@ -12,11 +12,13 @@ def getDriver():
     # Konfigurišite ChromeDriver pomoću Service objekta
     chrome_service = ChromeService(ChromeDriverManager().install())
 
-    capabilities = DesiredCapabilities.CHROME
-    capabilities['goog:loggingPrefs'] = {'performance': 'ALL'}
+    #capabilities = DesiredCapabilities.CHROME
+    #capabilities['goog:loggingPrefs'] = {'performance': 'ALL'}
+
+    chrome_options.add_experimental_option('goog:loggingPrefs', {'performance': 'ALL'})
 
     # Inicijalizacija WebDriver-a (npr. ChromeDriver)
-    driver = webdriver.Chrome(service=chrome_service, options=chrome_options, desired_capabilities=capabilities)
+    driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
     return driver
 
