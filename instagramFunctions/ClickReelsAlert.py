@@ -13,7 +13,7 @@ def click_on_reel_alert(driver):
         div_element.click()
         # Kliknite na dugme OK
 
-        print("Uspešno kliknuto na dugme 'Not Now'")
+        print("Uspešno kliknuto na dugme za Reels Alert")
     except Exception as e:
-        print(f"Greska prilikom klika na dugme 'Not Now': {e}")
+        print(f"Greska prilikom klika na dugme za Reels Alert: {e}")
 

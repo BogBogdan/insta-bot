@@ -18,20 +18,18 @@ def get_first_line(file_path):
     # Vrati učitani prvi red
     return first_line
 
-def uplaod_image():
+def main_program():
     
     line = get_first_line("./uploadData.txt")
     url, text = line.split('|')
     # Formirajte komandu koja će pokrenuti test.py sa argumentima
-
-    command = ["python", "AddReel.py", url, '"'+text+'"']
-
-    # Pokrenite komandu
+    print("Uplodovanje")
+    command = ["python", "AddReel.py", url, text]
     subprocess.run(command)
 
-def schedule_image_upload():
+def schedule_main_program():
     # Zakazivanje posla da se izvrši svaka 2 dana u 12:00
-    schedule.every(1).days.at("19:33").do(uplaod_image)
+    schedule.every(1).days.at("20:25").do(main_program)
 
     # Beskonačna petlja za izvršavanje poslova
     while True:
@@ -39,4 +37,4 @@ def schedule_image_upload():
         time.sleep(1)
 
 if __name__ == "__main__":
-    schedule_image_upload()
+    schedule_main_program()
