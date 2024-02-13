@@ -24,14 +24,14 @@ def uplaod_image():
     url, text = line.split('|')
     # Formirajte komandu koja će pokrenuti test.py sa argumentima
 
-    command = ["python", "AddPicture.py", url, '"'+text+'"']
+    command = ["python", "AddReel.py", url, '"'+text+'"']
 
     # Pokrenite komandu
     subprocess.run(command)
 
 def schedule_image_upload():
     # Zakazivanje posla da se izvrši svaka 2 dana u 12:00
-    schedule.every(1).days.at("18:54").do(uplaod_image)
+    schedule.every(1).days.at("19:33").do(uplaod_image)
 
     # Beskonačna petlja za izvršavanje poslova
     while True:
