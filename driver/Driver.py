@@ -15,7 +15,7 @@ def getDriver():
     #capabilities = DesiredCapabilities.CHROME
     #capabilities['goog:loggingPrefs'] = {'performance': 'ALL'}
 
-    chrome_options.add_experimental_option('goog:loggingPrefs', {'performance': 'ALL'})
+    #chrome_options.add_experimental_option('goog:loggingPrefs', {'performance': 'ALL'})
 
     # Inicijalizacija WebDriver-a (npr. ChromeDriver)
     driver = webdriver.Chrome(service=chrome_service, options=chrome_options)

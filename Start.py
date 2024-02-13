@@ -21,15 +21,17 @@ def get_first_line(file_path):
 def uplaod_image():
     
     line = get_first_line("./uploadData.txt")
+    url, text = line.split('|')
     # Formirajte komandu koja će pokrenuti test.py sa argumentima
-    command = ["python", "Start.py", "arg1", "arg2"]
+
+    command = ["python", "AddPicture.py", url, '"'+text+'"']
 
     # Pokrenite komandu
     subprocess.run(command)
 
 def schedule_image_upload():
     # Zakazivanje posla da se izvrši svaka 2 dana u 12:00
-    schedule.every(2).days.at("12:00").do(uplaod_image)
+    schedule.every(1).days.at("18:54").do(uplaod_image)
 
     # Beskonačna petlja za izvršavanje poslova
     while True:

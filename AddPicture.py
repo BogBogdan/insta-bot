@@ -57,7 +57,9 @@ def addImageOnInstagram(imgUrl, imgText):
 
     AddTextToImage.insert_text_into_element(driver, imgText)
 
-    time.sleep(random.randrange(60,70))
+    time.sleep(random.randrange(4,5))
+
+    ClickButtonShare.shere_photo(driver)
 
     # Zatvaranje pregledača
     driver.quit()
