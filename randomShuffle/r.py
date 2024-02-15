@@ -9,8 +9,8 @@ def shuffle_lines(input_file, output_file):
         for line in lines:
             file.write(line)
 
-input_file = 'uploadData.txt'  # Postavite ime vašeg ulaznog datoteke
-output_file = 'izlaz.txt'  # Postavite ime vašeg izlaznog datoteke
+input_file = './../uploadData.txt'  # Postavite ime vašeg ulaznog datoteke
+output_file = './../izlaz.txt'  # Postavite ime vašeg izlaznog datoteke
 
 shuffle_lines(input_file, output_file)
 print("Linije su izmiješane i spremljene u izlaznu datoteku.")

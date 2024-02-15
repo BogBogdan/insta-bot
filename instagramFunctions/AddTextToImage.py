@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 
 def insert_text_into_element(driver, text):
 
@@ -9,8 +10,14 @@ def insert_text_into_element(driver, text):
         # Pronalazimo element po CSS selektoru
         element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, css_selector)))
         
+        text = text.replace('\\n', '\ue007')
+        
+        print(text)
         # Ubacujemo tekst u element
-        element.send_keys(text)
+                # Simulacija unosa teksta pomoću tastature
+        ActionChains(driver).move_to_element(element).click().send_keys(text).perform()
+        
+
         print("Uspešno unet tekst u element.")
     except Exception as e:
         print("Nije moguće pronaći ili uneti tekst u element.")

@@ -6,7 +6,8 @@ import random
 import sys
 
 
-def addImageOnInstagram(imgUrl, imgText):
+def addReelOnInstagram(imgUrl, imgText):
+    
     driver = Driver.getDriver()
     username, password = getCredentials.usernameNpassword()
     
@@ -61,7 +62,7 @@ def addImageOnInstagram(imgUrl, imgText):
 
     AddTextToImage.insert_text_into_element(driver, imgText)
 
-    time.sleep(random.randrange(4,5))
+    time.sleep(random.randrange(14,15))
 
     ClickButtonShare.shere_photo(driver)
 
@@ -82,7 +83,7 @@ def main():
     caption = sys.argv[2]
     
     # Poziv funkcije addImageOnInstagram sa argumentima iz komandne linije
-    addImageOnInstagram(image_path, caption)
+    addReelOnInstagram(image_path, caption)
 
 if __name__ == "__main__":
     main()
