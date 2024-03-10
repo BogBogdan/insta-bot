@@ -1,2 +1,5 @@
 # insta-bot
-Logins to instagram read messages and answers them
+
+Actions:
+Logs into Instagram, uploads posts as images, and shares posts as reels.
+Logs into Instagram read messages and answers them.
